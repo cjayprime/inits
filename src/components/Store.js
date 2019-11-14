@@ -10,7 +10,7 @@ class Store {
     count = 0;
 
     //baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
-    baseUrl = 'http://nnachijioke.byethost14.com/htdocs/';
+    baseUrl = 'http://www.nnachijioke.byethost14.com/';
     
 
     fetchAPI = (url, callback, data) => {
