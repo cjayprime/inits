@@ -9,6 +9,10 @@ class Store {
 
     count = 0;
 
+    //baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
+    baseUrl = 'http://nnachijioke.byethost14.com/htdocs/';
+    
+
     fetchAPI = (url, callback, data) => {
 
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -20,7 +24,7 @@ class Store {
         }
         if(data)query.body = formData;
 
-        fetch('http://localhost/projects/work/ongoing/inits/api/' + url, query)
+        fetch(this.baseUrl + '' + url, query)
         //.then(async response => {console.log(response.type, response.body, await response.text()); return response})
         .then((response) => {
             
