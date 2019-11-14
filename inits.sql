@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 14, 2019 at 02:00 PM
+-- Generation Time: Nov 14, 2019 at 02:08 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `listing` (
   `category_id` bigint(20) NOT NULL,
   `name` text NOT NULL,
   `description` text NOT NULL,
-  `image` json NOT NULL,
+  `image` longtext NOT NULL,
   `url` text NOT NULL,
   `email` text NOT NULL,
   `mobile` text NOT NULL,
