@@ -9,8 +9,9 @@ class Store {
 
     count = 0;
 
-    //baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
-    baseUrl = 'http://www.nnachijioke.byethost14.com/';
+    baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
+    //baseUrssssssl = ['http://localhost/projects/work/ongoing/inits/api/', 'http://www.nnachijioke.byethost14.com/'];
+    //baseUrl = 'http://www.nnachijioke.byethost14.com/';
     
 
     fetchAPI = (url, callback, data) => {
@@ -23,11 +24,11 @@ class Store {
             formData.append(key, data[key]);
         }
         if(data)query.body = formData;
-
-        fetch(this.baseUrl + '' + url, query)
-        //.then(async response => {console.log(response.type, response.body, await response.text()); return response})
+        
+        fetch(this.baseUrl + '' + url, query) 
+        //.then(async response => {console.log(response.type, response.body, await response.text());return response})
         .then((response) => {
-            
+
             if (response.status >= 200 && response.status < 300) {
                 return Promise.resolve(response)
             } else {
@@ -37,7 +38,8 @@ class Store {
             }
 
         })
-        .then(response => response.json())
+        .then(async response => {console.log(response.type, response.body, await response.text());return response.json()})
+        //.then(response => response.json())
         .then(callback)
         .catch((err) =>{
             

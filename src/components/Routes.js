@@ -1,11 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Index from './Index';
-import Admin from './Admin';
+import Admin from '././Admin/Index';
 import { inject, observer } from 'mobx-react';
 
 function Routes(props){
-    
     return (
         <Route>
             <Route exact path="/">
