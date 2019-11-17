@@ -1,7 +1,7 @@
 <?php
 
     require_once('../database.php');
-    
+
     $title = isset($_POST['title']) ? $_POST['title'] : '';
     $emoji = isset($_POST['emoji']) ? $_POST['emoji'] : '';
 

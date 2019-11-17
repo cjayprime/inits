@@ -9,9 +9,9 @@ class Store {
 
     count = 0;
 
-    baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
+    //baseUrl = 'http://localhost/projects/work/ongoing/inits/api/';
     //baseUrssssssl = ['http://localhost/projects/work/ongoing/inits/api/', 'http://www.nnachijioke.byethost14.com/'];
-    //baseUrl = 'http://www.nnachijioke.byethost14.com/';
+    baseUrl = 'http://www.nnachijioke.byethost14.com/';
     
 
     fetchAPI = (url, callback, data) => {
@@ -21,25 +21,41 @@ class Store {
         var query = {method: data ? 'post' : 'get'};
         var formData = new FormData();
         for ( var key in data ) {
-            formData.append(key, data[key]);
+            var value = key;
+            if(value === 'image'){
+                value = key + '[]';
+                for ( var i = 0; i < data[key].length; i++ ){
+                    formData.append(value, data[key][i]);
+                }
+            }else{
+                formData.append(value, data[key]);
+            }
         }
         if(data)query.body = formData;
         
-        fetch(this.baseUrl + '' + url, query) 
-        //.then(async response => {console.log(response.type, response.body, await response.text());return response})
+        fetch(this.baseUrl + '' + url, query)
         .then((response) => {
 
             if (response.status >= 200 && response.status < 300) {
+                
                 return Promise.resolve(response)
+
             } else {
+                
                 var error = new Error(response.statusText || response.status);
                 error.response = response;
                 return Promise.reject(error)
+            
             }
 
         })
-        .then(async response => {console.log(response.type, response.body, await response.text());return response.json()})
-        //.then(response => response.json())
+        .then(async response => {
+            
+            var res = await response.text();
+            console.log(res);
+            return JSON.parse( res );
+        
+        })
         .then(callback)
         .catch((err) =>{
             
@@ -95,7 +111,7 @@ class Store {
             this.listingAction('delete/', data)
         },
         get: (data) => {
-            this.listingAction('/')
+            this.listingAction('?category=' + data);
         }
     };
 
@@ -122,7 +138,7 @@ class Store {
             this.categoryAction('delete/', data)
         },
         get: (data) => {
-            this.categoryAction('/')
+            this.categoryAction('category/')
         }
     };
 
@@ -133,7 +149,8 @@ decorate(Store, {
 	category: observable,
 	listings: observable,
 	count: observable,
-	fetchAPI: observable
+	fetchAPI: observable,
+	log: observable
 })
 
 const store = new Store();

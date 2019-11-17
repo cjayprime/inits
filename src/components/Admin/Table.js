@@ -7,12 +7,10 @@ import { Emoji } from 'emoji-mart';
 
 const styles = {
     outerImageContainer: {display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', height: 65, width: 150, padding: 10, background: 'grey', margin: 5, borderRadius: 10, overflowY: 'auto', marginLeft: -25},
-    
     innerImageContainer: {height: 30, width: 30, marginBottom: 15, margin: 5, background: 'grey', position: 'relative', overflow: 'hidden', backgroundPosition: 'center center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundImage: ''}
 };
-//var styleImageContainer = {display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', height: 65, width: 150, padding: 10, background: 'grey', margin: 5, borderRadius: 10, overflowY: 'auto', marginLeft: -25};
-//var styleDiv = {height: 30, width: 30, marginBottom: 15, margin: 5, background: 'grey', position: 'relative', overflow: 'hidden', backgroundPosition: 'center center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundImage: 'url("' + v + '")'};
-            
+
+
 const Table = (props) => {
     
     const dataPanel = {

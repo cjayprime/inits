@@ -23,20 +23,26 @@ function Admin(props) {
   const [view, setView] = useState('listings');
   const [mode, setMode] = useState('add');
   const [id, setID] = useState(0);
+
+
   const [title, setTitle] = useState('');
+  //const [category, setCategory] = useState('');
   const [category_id, setCategoryID] = useState('All');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState('Name');
+  const [description, setDescription] = useState('Description');
   const [image, setImage] = useState([]);
   const [imageFile, setImageFile] = useState([]);
-  const [url, setUrl] = useState('');
-  const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [address, setAddress] = useState('');
+  const [url, setUrl] = useState('www');
+  const [email, setEmail] = useState('email');
+  const [mobile, setMobile] = useState('mobile');
+  const [address, setAddress] = useState('address');
   const [categoryTitle, setCategoryTitle] = useState('');
   const [emoji, setEmoji] = useState('');
+  
   const [forceUpdate, setForceUpdate] = useState(false);
   const refToFileUpload = React.createRef();
+
+
 
   const submit = () => {
 
